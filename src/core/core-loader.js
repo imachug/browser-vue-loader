@@ -69,9 +69,9 @@ class BrowserVueLoader extends RegisterLoader {
     const {processor, url, options} = splitKey(key)
     const source = await fetchContent(url, Boolean(options.binary))
     if (processor) {
-      await this.router.routeTo(processor, key, source)
+      await this.router.routeTo(processor, url, source)
     } else {
-      await this.router.route(key, source)
+      await this.router.route(url, source)
     }
   }
 }
